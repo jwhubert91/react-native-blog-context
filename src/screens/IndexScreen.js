@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingHorizontal: 10,
+    paddingVertical: 20,
+    borderBottomWidth: 1,
+    borderColor: "gray",
   },
   title: {
     fontSize: 18,
