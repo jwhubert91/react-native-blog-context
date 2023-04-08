@@ -12,6 +12,7 @@ import { Feather } from "@expo/vector-icons"
 
 const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext)
+  console.log(state)
   return (
     <View>
       <Button title="Add Post" onPress={addBlogPost} />
@@ -35,6 +36,16 @@ const IndexScreen = ({ navigation }) => {
       />
     </View>
   )
+}
+
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+        <Feather name="plus" size={30} />
+      </TouchableOpacity>
+    ),
+  }
 }
 
 const styles = StyleSheet.create({
