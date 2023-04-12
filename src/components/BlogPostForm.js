@@ -1,16 +1,9 @@
-import React, { useContext, useState } from "react"
-import { View, Text, StyleSheet, Button } from "react-native"
-import { TextInput } from "react-native-gesture-handler"
-import { Context } from "../context/BlogContext"
+import React, { useState } from "react"
+import { StyleSheet, Text, View, TextInput, Button } from "react-native"
 
-const CreateScreen = ({ navigation }) => {
+const BlogPostForm = () => {
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
-  const { addBlogPost } = useContext(Context)
-
-  const handleCreateBlogPost = () => {
-    addBlogPost(title, content, () => navigation.navigate("Index"))
-  }
 
   return (
     <View>
@@ -26,7 +19,7 @@ const CreateScreen = ({ navigation }) => {
         onChangeText={(text) => setContent(text)}
         style={styles.input}
       />
-      <Button title="Add Blog Post" onPress={handleCreateBlogPost} />
+      <Button title="Save Blog Post" />
     </View>
   )
 }
@@ -47,4 +40,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default CreateScreen
+export default BlogPostForm
