@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react"
 import { View, Text, StyleSheet, Button } from "react-native"
 import { TextInput } from "react-native-gesture-handler"
 import { Context } from "../context/BlogContext"
+import BlogPostForm from "../components/BlogPostForm"
 
 const CreateScreen = ({ navigation }) => {
   const [title, setTitle] = useState("")
@@ -13,21 +14,11 @@ const CreateScreen = ({ navigation }) => {
   }
 
   return (
-    <View>
-      <Text style={styles.label}>Enter Title:</Text>
-      <TextInput
-        value={title}
-        onChangeText={(text) => setTitle(text)}
-        style={styles.input}
-      />
-      <Text style={styles.label}>Enter Content:</Text>
-      <TextInput
-        value={content}
-        onChangeText={(text) => setContent(text)}
-        style={styles.input}
-      />
-      <Button title="Add Blog Post" onPress={handleCreateBlogPost} />
-    </View>
+    <BlogPostForm
+      onSubmit={({ title, content }) => {
+        addBlogPost(title, content, () => navigation.navigate("Index"))
+      }}
+    />
   )
 }
 
