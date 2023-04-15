@@ -1,21 +1,14 @@
-import React, { useContext, useState } from "react"
-import { View, Text, StyleSheet, Button } from "react-native"
-import { TextInput } from "react-native-gesture-handler"
+import React, { useContext } from "react"
+import { StyleSheet } from "react-native"
 import { Context } from "../context/BlogContext"
 import BlogPostForm from "../components/BlogPostForm"
 
 const CreateScreen = ({ navigation }) => {
-  const [title, setTitle] = useState("")
-  const [content, setContent] = useState("")
   const { addBlogPost } = useContext(Context)
-
-  const handleCreateBlogPost = () => {
-    addBlogPost(title, content, () => navigation.navigate("Index"))
-  }
 
   return (
     <BlogPostForm
-      onSubmit={({ title, content }) => {
+      onSubmit={(title, content) => {
         addBlogPost(title, content, () => navigation.navigate("Index"))
       }}
     />

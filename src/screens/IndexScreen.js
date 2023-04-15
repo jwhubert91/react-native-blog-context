@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   TouchableOpacity,
 } from "react-native"
 import { Context as BlogContext } from "../context/BlogContext"
@@ -12,7 +11,6 @@ import { Feather } from "@expo/vector-icons"
 
 const IndexScreen = ({ navigation }) => {
   const { state, deleteBlogPost } = useContext(BlogContext)
-  console.log(state)
   return (
     <View>
       <FlatList
